@@ -1,22 +1,24 @@
 # Stage 4
 
-List Reducers/Store/Connect
+## List Reducers/Store/Connect
 
-This stage will have a lot of moving parts, so it may take a long time to implement. Now that we have the api, the action creator and the list component, we need to connect them up to redux, but before we connect
-everything up, we need to create a redux store, setup the app provider,
-and use the connect to map the redux state to our components props.
+This stage will have a lot of moving parts, so it may take a long time to implement. Now that we have the api, the action creator and the list component, we need to connect them up to redux, but before we connect everything up, we need to:
+
+- Create a redux store
+- Setup the app provider
+- Use the connect to map the redux state to our components props.
 
 > Make sure you have the api running on port 5000 and the app running on port 3000
 
 ## Reducers
 
-In the `app/src` directory, create a new directory called `reducers`
+In the **app/src** directory, create a new directory called **reducers**.
 
-In the `reducers` directory, create a new file called `colors.js`
+In the **reducers** directory, create a new file called **colors.js**.
 
-In the `colors.js` file, lets add the following reducer for our list of colors.
+In the **colors.js** file, lets add the following reducer for our list of colors.
 
-src/reducers/colors.js
+**src/reducers/colors.js**
 
 ``` js
 import { SET_COLORS } from '../constants'
@@ -35,9 +37,9 @@ export const colors = (state=[], action) => {
 
 We need to create a redux store to manage our state
 
-In the `src` directory create a file called `store.js`
+In the **src** directory create a file called **store.js**.
 
-src/store.js
+**src/store.js**
 
 ``` js
 import { createStore, combineReducers, applyMiddleware } from 'redux'
@@ -55,10 +57,9 @@ export default createStore(
 
 ## Provider
 
-Now that we created our redux store we need to attach the redux store
-to our app as a provider to let our app know when to render the app.
+Now that we created our redux store we need to attach the redux store to our app as a provider to let our app know when to render the app.
 
-In the `src` directory open the `index.js` file
+In the **src** directory open the **index.js** file
 
 ``` js
 import { Provider } from 'react-redux'
@@ -84,7 +85,7 @@ store.dispatch(setColors)
 
 To connect to our redux store, we need to use the connect higher order component to wrap around the component we want to connect to the store.
 
-In `src/pages/colors` open the `index.js` file
+In **src/pages/colors** folder open the **index.js** file
 
 Add the following code:
 
@@ -112,9 +113,7 @@ export default connector(Colors)
 
 ## Verify
 
-You should be able to visually verify that the colors show on your page
-after having removed the hard coded fetch and it should now be flowing
-through your redux store.
+You should be able to visually verify that the colors show on your page after having removed the hard coded fetch and it should now be flowing through your redux store.
 
 ## Challenge
 
